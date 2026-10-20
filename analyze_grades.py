@@ -3,8 +3,10 @@ import pandas as pd
 def calculate_stats(file_name):
     data = pd.read_csv(file_name)
     avg = data["Score"].mean()
-    return avg
+    count = len(data)
+    return avg, count
 
 if __name__ == "__main__":
-    avg = calculate_stats("grades.csv")
+    avg, count = calculate_stats("grades.csv")
     print(f"The average grade is {avg}")
+    print(f"The total number of students is {count}")
